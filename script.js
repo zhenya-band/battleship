@@ -10,7 +10,7 @@
       hit: 0,
       dead: 0,
       set updateData(data){
-        this[data] +=1;
+        this[data] += 1;
         this.render();
       },
       render(){
@@ -25,9 +25,9 @@
       hit(){
 
       },
-      miss(elem){
-        this.changeClass(elem, 'miss');
-      },
+      miss(target){
+          this.changeClass(target, 'miss');
+        },
       dead(){
 
       },
@@ -39,8 +39,14 @@
 
     const fire = (event) => {
       const target = event.target;
+      if (event.target.className === 'miss') {
+
+      }
+      else {
+      console.log(target);
       show.miss(target);
       play.updateData = 'shot';
+      }
     };
 
     const init = () => {
